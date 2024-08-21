@@ -6,6 +6,7 @@ import data from './data.json';
 
 function App()  {
     return <Table data={ data }/>
+        
 }
 
 const root = createRoot(document.querySelector('#root'));
