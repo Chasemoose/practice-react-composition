@@ -2,17 +2,12 @@ import React from 'react';
 
 class TableHeader extends React.Component {
     render() {
-        const {data} = this.props;
-        console.log(data);
+        const {colNames} = this.props
 
         return (
             <thead>
                 <tr>
-                    <td>id</td>
-                    <td>name</td>
-                    <td>price</td>
-                    <td>quantity</td>
-                    <td>sum</td>
+                  {colNames.map(name => <th>{name}</th>)}
                 </tr>
             </thead>
         )

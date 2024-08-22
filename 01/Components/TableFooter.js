@@ -1,11 +1,12 @@
 import React from 'react';
+import TableRow from './TableRow'
 
 class TableFooter extends React.Component {
     render() {
         return (
             <tfoot>
                 <tr>
-                    <td>footer test</td>
+                    <TableRow items={this.props.items} />
                 </tr>
             </tfoot>
         )

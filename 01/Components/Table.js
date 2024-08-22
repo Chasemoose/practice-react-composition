@@ -13,19 +13,24 @@ class Table extends React.Component {
 		})
 	}
 
+	totalPrice() {
+		const {data} = this.props
+		
+		data.reduce((acc, item) => acc + (item.price * item.quantity), 0)
+	}
+
 
 
 	render() {
 		const { data } = this.props
-		console.log(data)
-
+		
 		return (
 			<Table>
-				<TableHeader />
+				<TableHeader colNames={[id, name, price, quantity, sum]} />
 				<TableBody>
 					{this.RowsRender()}
 				</TableBody>
-				<TableFooter />
+				<TableFooter items={['', '', '', '', this.totalPrice()]}/>
 			</Table>
 		)
 	}
