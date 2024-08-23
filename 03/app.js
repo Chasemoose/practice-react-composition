@@ -22,15 +22,31 @@ class App extends React.Component {
             })
         }
     }
+
+    removeProduct = (id) => {
+        const cart = this.state.cart.filter(item => item.id !== id)
+        this.setState({
+            cart
+        })
+        
+    }
+
+
+    checkCart = (id) => {
+        return !!this.state.cart.find(item => item.id === id)
+    }
     
     render() {
+        const { cart } = this.state
+
         return (
             <section>
                 <Category>
-                    {/* {data.map(item => <li key={item.id}>{item.name} ({item.price}) <button>buy</button></li>)} */}
-                    {data.map(item => <Product key={item.id} data={item} />)}
+                    {data.map(item => <Product checkCart={this.checkCart(item.id)} key={item.id} data={item} clickHandler={this.addProduct}/>)}
                 </Category>
-                <Cart />
+                <Cart>
+                    {cart.map(item => <Product isInCart={true} key={item.id} cart={item} clickHandler={this.removeProduct}/>)}
+                </Cart>
             </section>
         )
     }
