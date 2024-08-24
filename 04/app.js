@@ -19,7 +19,7 @@ class App extends React.Component {
         return (
             <section>
                 <File addFileToList={this.addFileToList} />
-                <List items={this.state.fileList} />
+                <List items={this.state.filesList} />
             </section>
         )
     }
