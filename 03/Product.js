@@ -11,14 +11,34 @@ function Product(props) {
     return (
         <li>
             {data.name} ({data.price})
-           {isInCart ?
-                <button onClick={() => handleClick(data.id)}>remove</button>
-           :
-                <button disabled={checkCart ? true : false} onClick={() => handleClick(data.id)}>buy</button>
-
-            }
+           {isInCart ? (
+                <button onClick={() => handleClick(data.id)}>remove</button> )
+           : (
+                <button
+                    disabled={checkCart()}
+                    onClick={() => handleClick(data.id)}
+                    >
+                        buy
+                    </button>
+            )}
         </li>
     )
 }
 
 export default Product;
+
+
+
+
+// return (
+//     <li>
+//         {data.name} ({data.price})
+//        {isInCart ?
+//             <button onClick={() => handleClick(data.id)}>remove</button>
+//        : (
+//             <button
+//                 disabled={checkCart ? true : false} onClick={() => handleClick(data.id)}>buy</button>)
+
+//         }
+//     </li>
+// )

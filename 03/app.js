@@ -42,10 +42,18 @@ class App extends React.Component {
         return (
             <section>
                 <Category>
-                    {data.map(item => <Product checkCart={this.checkCart(item.id)} key={item.id} data={item} clickHandler={this.addProduct}/>)}
+                    {data.map(item => (
+                        <Product
+                            checkCart={() => this.checkCart(item.id)}
+                            key={item.id}
+                            data={item}
+                            clickHandler={this.addProduct}
+                        />
+                    ))}
+
                 </Category>
                 <Cart>
-                    {cart.map(item => <Product isInCart={true} key={item.id} cart={item} clickHandler={this.removeProduct}/>)}
+                    {cart.map(item => <Product isInCart={true} key={item.id} data={item} clickHandler={this.removeProduct}/>)}
                 </Cart>
             </section>
         )
