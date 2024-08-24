@@ -4,7 +4,7 @@ class TableBody extends React.Component {
     render() {
       return (
         <tbody>
-            this.props.children
+            {this.props.children}
         </tbody>
       )
     }

@@ -8,6 +8,9 @@ class Table extends React.Component {
 
 	RowsRender() {
 		const {data} = this.props
+		if(!data || data.length === 0) {
+			return <tr><td colSpan='5'>Nie ma danych do wyświetlenia</td></tr>
+		}
 		return data.map(({id, name, price, quantity}) => {
 			return <TableRow key={id} items={[id, name, price, quantity, price * quantity]} />
 		})
@@ -15,18 +18,17 @@ class Table extends React.Component {
 
 	totalPrice() {
 		const {data} = this.props
-		
-		data.reduce((acc, item) => acc + (item.price * item.quantity), 0)
+				
+		return data ? data.reduce((acc, item) => acc + (item.price * item.quantity), 0) : 0
 	}
 
 
 
 	render() {
-		const { data } = this.props
-		
+		console.log("rendering table....");
 		return (
 			<Table>
-				<TableHeader colNames={[id, name, price, quantity, sum]} />
+				<TableHeader colNames={["ID", "Name", "Price", "Quantity", "Sum"]} />
 				<TableBody>
 					{this.RowsRender()}
 				</TableBody>

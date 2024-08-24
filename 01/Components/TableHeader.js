@@ -7,7 +7,7 @@ class TableHeader extends React.Component {
         return (
             <thead>
                 <tr>
-                  {colNames.map(name => <th>{name}</th>)}
+                  {colNames.map(name => <th key={index}>{name}</th>)}
                 </tr>
             </thead>
         )
